@@ -19,6 +19,7 @@ public class RecordService {
     private static class RecordMapper {
         static RecordDto map(Record r) {
             return new RecordDto(
+                    r.getId(),
                     r.getDateAdded(),
                     r.getValue(),
                     r.getType(),

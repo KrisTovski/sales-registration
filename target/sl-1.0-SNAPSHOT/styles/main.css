@@ -86,7 +86,7 @@ div.Table {
     border-left: none;
 }
 
-.Table .tableFootStyle {
+.Table outerTableFooter .tableFootStyle {
     font-size: 14px;
     font-weight: normal;
     color: #FFFFFF;
@@ -96,13 +96,13 @@ div.Table {
     background: linear-gradient(to bottom, #eeebe3 0%, #eae7dd 66%, #E8E5DA 100%);
     border-top: 0px solid #444444;
 }
-.Table .tableFootStyle {
+.Table outerTableFooter .tableFootStyle {
     font-size: 14px;
 }
-.Table .tableFootStyle .links {
+.Table outerTableFooter .tableFootStyle .links {
     text-align: right;
 }
-.Table .tableFootStyle .links a{
+.Table outerTableFootere .tableFootStyle .links a{
     display: inline-block;
     background: #304C89;
     color: #FFFFFF;
