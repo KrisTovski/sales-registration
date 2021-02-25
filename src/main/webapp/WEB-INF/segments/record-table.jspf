@@ -1,0 +1,41 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<p>Styczeń 2021</p>
+<div class="Table Table">
+    <div class="TableHeading">
+        <div class="TableRow">
+            <div class="TableHead">Lp.</div>
+            <div class="TableHead">Data</div>
+            <div class="TableHead">Kwota</div>
+            <div class="TableHead">Typ</div>
+            <div class="TableHead">Uwagi</div>
+        </div>
+    </div>
+    <div class="TableBody">
+        <c:forEach var="record" items="${requestScope.records}">
+            <div class="TableRow">
+                <div class="TableCell">1</div>
+                <div class="TableCell">${record.dateAdded.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))}</div>
+                <div class="TableCell"><c:out value="${record.value}"/></div>
+                <div class="TableCell"><c:out value="${record.type}"/></div>
+                <div class="TableCell"><c:out value="${record.description}"/></div>
+            </div>
+        </c:forEach>
+    </div>
+    <div class="Table outerTableFooter">
+        <div class="tableFootStyle">
+            <div class="links">
+                <a href="#">&laquo;</a>
+                <a class="active" href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <p>Suma: 300zł</p>
+</div>
