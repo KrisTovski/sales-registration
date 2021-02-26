@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ewidencja sprzedaży</title>
-    <%@ include file="../segments/stylesheet.jspf" %>
+    <%@ include file="../segments/stylesheets.jspf" %>
 </head>
 <body>
 <div class="container">
