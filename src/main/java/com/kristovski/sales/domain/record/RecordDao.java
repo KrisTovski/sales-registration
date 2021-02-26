@@ -1,26 +1,17 @@
 package com.kristovski.sales.domain.record;
 
-import com.kristovski.sales.config.DataSourceProvider;
+import com.kristovski.sales.domain.common.BaseDao;
 
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.math.BigDecimal;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecordDao {
-
-    private final DataSource dataSource;
-
-    public RecordDao() {
-        try {
-            this.dataSource = DataSourceProvider.getDataSource();
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
-    }
+public class RecordDao extends BaseDao {
 
     public List<Record> findAll() {
         final String query = """
@@ -29,7 +20,7 @@ public class RecordDao {
                 FROM
                 records d
                 """;
-        try (Connection connection = dataSource.getConnection();
+        try (Connection connection = getConnection();
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
             List<Record> allRecords = new ArrayList<>();

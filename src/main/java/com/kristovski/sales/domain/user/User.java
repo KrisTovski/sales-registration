@@ -1,0 +1,42 @@
+package com.kristovski.sales.domain.user;
+
+import java.time.LocalDateTime;
+
+public class User {
+    private Integer Id;
+    private String username;
+    private String email;
+    private String password;
+    private LocalDateTime registrationDate;
+
+    public User(String username, String email, String password, LocalDateTime registrationDate) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.registrationDate = registrationDate;
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public LocalDateTime getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+}
