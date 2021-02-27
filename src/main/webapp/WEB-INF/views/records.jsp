@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <title>Ewidencja sprzedaży</title>
     <%@ include file="../segments/stylesheets.jspf" %>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/images.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/table.css">
 </head>
 <body>
 <div class="container">
     <%@ include file="../segments/header.jspf" %>
     <main>
-        <img src="${pageContext.request.contextPath}/images/indeximage.jpg" alt="image" class="responsive"/>
+        <%@ include file="../segments/record-table.jspf" %>
     </main>
     <%@ include file="../segments/footer.jspf" %>
 </div>
