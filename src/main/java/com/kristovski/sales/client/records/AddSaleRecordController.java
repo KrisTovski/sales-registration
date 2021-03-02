@@ -39,11 +39,11 @@ public class AddSaleRecordController extends HttpServlet {
     private SaleRecordSaveRequestDto createSaveRequest(HttpServletRequest request) {
         String loggedInUsername = request.getUserPrincipal().getName();
         BigDecimal value = new BigDecimal(request.getParameter("value"));
-        SaleRecordType type = new SaleRecordType.valueOf(request.getParameter("type"));
+        SaleRecordType type = new SaleRecordType(request.getParameter("type"));
 
         return new SaleRecordSaveRequestDto(
-                request.getParameter(value),
-                request.getParameter("type"),
+                request.getParameter(String.valueOf(value)),
+                request.getParameter(),
                 request.getParameter("description"),
                 loggedInUsername
         );

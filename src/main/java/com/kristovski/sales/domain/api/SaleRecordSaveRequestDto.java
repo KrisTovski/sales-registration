@@ -25,7 +25,7 @@ public class SaleRecordSaveRequestDto {
         return value;
     }
 
-    public String getType() {
+    public SaleRecordType getType() {
         return type;
     }
 

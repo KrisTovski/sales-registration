@@ -26,8 +26,6 @@ public class SaleRecord {
         this.userId = userId;
     }
 
-    public SaleRecord(LocalDateTime now, BigDecimal value, SaleRecordType type, String description, Integer id) {
-    }
 
     public Integer getId() {
         return id;
