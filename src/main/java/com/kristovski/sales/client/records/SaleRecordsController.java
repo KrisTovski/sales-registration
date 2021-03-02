@@ -1,7 +1,7 @@
 package com.kristovski.sales.client.records;
 
-import com.kristovski.sales.domain.api.RecordDto;
-import com.kristovski.sales.domain.api.RecordService;
+import com.kristovski.sales.domain.api.SaleRecordDto;
+import com.kristovski.sales.domain.api.SaleRecordService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,14 +12,14 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/records")
-public class RecordsController extends HttpServlet {
+public class SaleRecordsController extends HttpServlet {
 
-    RecordService recordService = new RecordService();
+    SaleRecordService saleRecordService = new SaleRecordService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<RecordDto> recordDtos = recordService.findAll();
-        request.setAttribute("records", recordDtos);
+        List<SaleRecordDto> saleRecordDtos = saleRecordService.findAll();
+        request.setAttribute("records", saleRecordDtos);
         request.getRequestDispatcher("/WEB-INF/views/records.jsp").forward(request, response);
     }
 }

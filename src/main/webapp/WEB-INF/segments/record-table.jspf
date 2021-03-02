@@ -14,13 +14,13 @@
         </div>
     </div>
     <div class="TableBody">
-        <c:forEach var="record" items="${requestScope.records}">
+        <c:forEach var="saleRecord" items="${requestScope.records}">
             <div class="TableRow">
-                <div class="TableCell"><c:out value="${record.id}"/></div>
-                <div class="TableCell">${record.dateAdded.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))}</div>
-                <div class="TableCell"><c:out value="${record.value}"/></div>
-                <div class="TableCell"><c:out value="${record.type}"/></div>
-                <div class="TableCell"><c:out value="${record.description}"/></div>
+                <div class="TableCell"><c:out value="${saleRecord.id}"/></div>
+                <div class="TableCell">${saleRecord.dateAdded.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))}</div>
+                <div class="TableCell"><c:out value="${saleRecord.value}"/></div>
+                <div class="TableCell"><c:out value="${saleRecord.type}"/></div>
+                <div class="TableCell"><c:out value="${saleRecord.description}"/></div>
             </div>
         </c:forEach>
     </div>

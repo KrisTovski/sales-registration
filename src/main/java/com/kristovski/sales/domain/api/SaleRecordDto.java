@@ -1,19 +1,19 @@
 package com.kristovski.sales.domain.api;
 
-import com.kristovski.sales.domain.record.RecordType;
+import com.kristovski.sales.domain.salerecord.SaleRecordType;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class RecordDto {
+public class SaleRecordDto {
 
     private int id;
     private LocalDateTime dateAdded;
     private BigDecimal value;
-    private RecordType type;
+    private SaleRecordType type;
     private String description;
 
-    public RecordDto(int id, LocalDateTime dateAdded, BigDecimal value, RecordType type, String description) {
+    public SaleRecordDto(int id, LocalDateTime dateAdded, BigDecimal value, SaleRecordType type, String description) {
         this.id = id;
         this.dateAdded = dateAdded;
         this.value = value;
@@ -33,7 +33,7 @@ public class RecordDto {
         return value;
     }
 
-    public RecordType getType() {
+    public SaleRecordType getType() {
         return type;
     }
 

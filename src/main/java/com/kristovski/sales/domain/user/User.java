@@ -3,11 +3,17 @@ package com.kristovski.sales.domain.user;
 import java.time.LocalDateTime;
 
 public class User {
-    private Integer Id;
+    private Integer id;
     private String username;
     private String email;
     private String password;
     private LocalDateTime registrationDate;
+
+    public User(Integer id, String username, String email, String password, LocalDateTime registrationDate) {
+        this(username, email, password, registrationDate);
+        this.id = id;
+
+    }
 
     public User(String username, String email, String password, LocalDateTime registrationDate) {
         this.username = username;
@@ -17,7 +23,7 @@ public class User {
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public String getUsername() {
@@ -37,6 +43,10 @@ public class User {
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

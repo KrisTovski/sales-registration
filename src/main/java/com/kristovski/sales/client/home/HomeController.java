@@ -1,7 +1,5 @@
 package com.kristovski.sales.client.home;
 
-import com.kristovski.sales.domain.api.RecordDto;
-import com.kristovski.sales.domain.api.RecordService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
