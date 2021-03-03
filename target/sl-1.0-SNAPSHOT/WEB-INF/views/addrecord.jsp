@@ -11,12 +11,19 @@
 <div class="container">
     <%@ include file="../segments/header.jspf" %>
 
-    <form action="#" method="post" class="saleRecord-form">
+    <form action="${pageContext.request.contextPath}/record/add" method="post" class="saleRecord-form">
         <h2 class="saleRecord-form-title">Dodaj nowy rekord</h2>
-        <input name="value" placeholder="Kwota" step="0.01" required>
+        <input name="value" type="number" placeholder="Kwota" step="0.01" required>
         <select>
-            <option>Paragon</option>
-            <option>Faktura</option>
+            <label>
+                Paragon
+                <input name="type" type="radio" value="PARAGON">
+            </label>
+            <label>
+                Faktura
+                <input name="type" type="radio" value="FAKTURA">
+            </label>
+
         </select>
         <textarea name="description" placeholder="opis"></textarea>
         <button class="saleRecord-form-button">Dodaj</button>

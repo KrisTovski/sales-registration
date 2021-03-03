@@ -32,17 +32,17 @@ public class AddSaleRecordController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SaleRecordSaveRequestDto saveRequestDto = createSaveRequest(request);
-        recordService.add(saveRequestDto);
-        response.sendRedirect(request.getContextPath());
+        SaleRecordType type = SaleRecordType.valueOf(request.getParameter("type"));
+        recordService.add(saveRequestDto, type);
+        response.sendRedirect(request.getContextPath() + "/records");
     }
 
     private SaleRecordSaveRequestDto createSaveRequest(HttpServletRequest request) {
         BigDecimal value = new BigDecimal(request.getParameter("value"));
-        SaleRecordType type = SaleRecordType.valueOf(request.getParameter("type"));
         String description = request.getParameter("description");
-        String loggedInUsername = request.getUserPrincipal().getName();
+        String author = request.getUserPrincipal().getName();
 
-        SaleRecordSaveRequestDto saveRequestDto = new SaleRecordSaveRequestDto(value, type, description, loggedInUsername);
+        SaleRecordSaveRequestDto saveRequestDto = new SaleRecordSaveRequestDto(value, description, author);
         return saveRequestDto;
     }
 

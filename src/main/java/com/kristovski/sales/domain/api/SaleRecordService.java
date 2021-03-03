@@ -2,6 +2,7 @@ package com.kristovski.sales.domain.api;
 
 import com.kristovski.sales.domain.salerecord.SaleRecord;
 import com.kristovski.sales.domain.salerecord.SaleRecordDao;
+import com.kristovski.sales.domain.salerecord.SaleRecordType;
 import com.kristovski.sales.domain.user.UserDao;
 
 import java.time.LocalDateTime;
@@ -13,8 +14,8 @@ public class SaleRecordService {
     private final SaleRecordDao saleRecordDao = new SaleRecordDao();
     private final RecordMapper recordMapper = new RecordMapper();
 
-    public void add(SaleRecordSaveRequestDto saveRequestDto) {
-        SaleRecord recordToSave = recordMapper.map(saveRequestDto);
+    public void add(SaleRecordSaveRequestDto saveRequestDto, SaleRecordType type) {
+        SaleRecord recordToSave = recordMapper.map(saveRequestDto, type);
         saleRecordDao.save(recordToSave);
     }
 
@@ -38,15 +39,16 @@ public class SaleRecordService {
 
         }
 
-        SaleRecord map(SaleRecordSaveRequestDto rs) {
+        SaleRecord map(SaleRecordSaveRequestDto rs, SaleRecordType type) {
             return new SaleRecord(
                     LocalDateTime.now(),
                     rs.getValue(),
-                    rs.getType(),
+                    type,
                     rs.getDescription(),
                     userDao.findByUsername(rs.getAuthor())
                             .orElseThrow()
                             .getId()
+
             );
         }
 

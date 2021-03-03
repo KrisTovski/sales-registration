@@ -11,6 +11,7 @@ public class SaleRecordSaveRequestDto {
     private String description;
     private String author;
 
+
     public SaleRecordSaveRequestDto(BigDecimal value, SaleRecordType type, String description, String author) {
 
         this.value = value;
@@ -19,7 +20,11 @@ public class SaleRecordSaveRequestDto {
         this.author = author;
     }
 
-
+    public SaleRecordSaveRequestDto(BigDecimal value, String description, String author) {
+        this.value = value;
+        this.description = description;
+        this.author = author;
+    }
 
     public BigDecimal getValue() {
         return value;
@@ -36,4 +41,6 @@ public class SaleRecordSaveRequestDto {
     public String getAuthor() {
         return author;
     }
+
+
 }
