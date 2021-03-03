@@ -43,7 +43,8 @@ public class SaleRecordDao extends BaseDao {
             statement.setObject(1, saleRecord.getDateAdded());
             statement.setBigDecimal(2, saleRecord.getValue());
             statement.setString(3, saleRecord.getType().name());
-            statement.setInt(4, saleRecord.getUserId());
+            statement.setString(4, saleRecord.getDescription());
+            statement.setInt(5, saleRecord.getUserId());
             statement.executeUpdate();
             ResultSet generatedKey = statement.getGeneratedKeys();
             if (generatedKey.next()) {

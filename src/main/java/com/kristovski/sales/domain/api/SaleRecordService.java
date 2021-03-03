@@ -2,7 +2,6 @@ package com.kristovski.sales.domain.api;
 
 import com.kristovski.sales.domain.salerecord.SaleRecord;
 import com.kristovski.sales.domain.salerecord.SaleRecordDao;
-import com.kristovski.sales.domain.salerecord.SaleRecordType;
 import com.kristovski.sales.domain.user.UserDao;
 
 import java.time.LocalDateTime;

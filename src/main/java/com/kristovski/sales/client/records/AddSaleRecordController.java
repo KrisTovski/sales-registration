@@ -26,7 +26,7 @@ public class AddSaleRecordController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/add-record.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/addrecord.jsp").forward(request, response);
     }
 
     @Override
@@ -37,15 +37,14 @@ public class AddSaleRecordController extends HttpServlet {
     }
 
     private SaleRecordSaveRequestDto createSaveRequest(HttpServletRequest request) {
-        String loggedInUsername = request.getUserPrincipal().getName();
         BigDecimal value = new BigDecimal(request.getParameter("value"));
-        SaleRecordType type = new SaleRecordType(request.getParameter("type"));
+        SaleRecordType type = SaleRecordType.valueOf(request.getParameter("type"));
+        String description = request.getParameter("description");
+        String loggedInUsername = request.getUserPrincipal().getName();
 
-        return new SaleRecordSaveRequestDto(
-                request.getParameter(String.valueOf(value)),
-                request.getParameter(),
-                request.getParameter("description"),
-                loggedInUsername
-        );
+        SaleRecordSaveRequestDto saveRequestDto = new SaleRecordSaveRequestDto(value, type, description, loggedInUsername);
+        return saveRequestDto;
     }
+
+
 }
