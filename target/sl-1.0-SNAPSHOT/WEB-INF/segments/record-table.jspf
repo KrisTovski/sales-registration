@@ -2,7 +2,13 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<p>Styczeń 2021</p>
+<div class="month">
+    <ul>
+        <li class="prev">&#10094;</li>
+        <li class="next">&#10095;</li>
+        <li><span style="font-size:18px">Styczeń 2021</span></li>
+    </ul>
+</div>
 <div class="Table Table">
     <div class="TableHeading">
         <div class="TableRow">
@@ -24,18 +30,23 @@
             </div>
         </c:forEach>
     </div>
-    <div class="Table outerTableFooter">
-        <div class="tableFootStyle">
-            <div class="links">
-                <a href="#">&laquo;</a>
-                <a class="active" href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">&raquo;</a>
-            </div>
+
+
+</div>
+
+<div class="Table outerTableFooter">
+    <div class="tableFootStyle">
+        <div class="links">
+            <a href="#">&laquo;</a>
+            <a class="active" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">&raquo;</a>
         </div>
     </div>
-
-    <p>Suma: 300zł</p>
 </div>
+<div><p>Suma: 300zł</p></div>
+<a href="${pageContext.request.contextPath}/record/add" class="record-add-button">
+    <i class="fa fa-plus"></i>
+</a>

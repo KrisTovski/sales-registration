@@ -4,6 +4,30 @@ body {
     font-weight: 300;
 }
 
+ul {
+    list-style-type: none;
+}
+
+/* Month header */
+.month {
+    padding: 5px 15px;
+    max-width: 1000px;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+/* Previous button inside month header */
+.month .prev {
+    float: left;
+    padding-top: 5px;
+}
+
+/* Next button */
+.month .next {
+    float: right;
+    padding-top: 5px;
+}
+
 /* max szerokość kolumny 1000px i wyśrodkowanie */
 
 .container {
@@ -50,9 +74,25 @@ a {
     opacity: 80%;
 }
 
+
 /* stopka */
 
 footer {
     margin-top: 20px;
     text-align: center;
+}
+
+.record-add-button {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 50%;
+    background-color: #648DE5;
+    color: #FFF;
+    box-shadow: 2px 2px 3px #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

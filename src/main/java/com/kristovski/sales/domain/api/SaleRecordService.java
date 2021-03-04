@@ -40,6 +40,7 @@ public class SaleRecordService {
         }
 
         SaleRecord map(SaleRecordSaveRequestDto rs, SaleRecordType type) {
+
             return new SaleRecord(
                     LocalDateTime.now(),
                     rs.getValue(),
