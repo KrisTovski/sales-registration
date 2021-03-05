@@ -19,11 +19,17 @@ public class SaleRecordService {
         saleRecordDao.save(recordToSave);
     }
 
-    public List<SaleRecordDto> findAll() {
-        return saleRecordDao.findAll()
+    public List<SaleRecordDto> findAll(int pageIndex, int pageSize) {
+
+        return saleRecordDao.findAll(pageIndex, pageSize)
                 .stream().map(RecordMapper::map)
                 .collect(Collectors.toList());
     }
+
+    public Integer getNumberOfRows() {
+        return saleRecordDao.getNumberOfRows();
+    }
+
 
     private static class RecordMapper {
         private final UserDao userDao = new UserDao();
