@@ -10,7 +10,9 @@ import java.util.List;
 
 public class SaleRecordDao extends BaseDao {
 
-    public List<SaleRecord> findAll(int currentPage, int pageSize) {
+
+
+    public List<SaleRecord> findAll(int currentPage, int recordsPerPage) {
         final String query = """
                 SELECT
                 id, date_added, value, type, description, user_id
@@ -22,7 +24,7 @@ public class SaleRecordDao extends BaseDao {
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, currentPage);
-            statement.setInt(2, pageSize);
+            statement.setInt(2, recordsPerPage);
             ResultSet resultSet = statement.executeQuery();
             List<SaleRecord> allSaleRecords = new ArrayList<>();
             while (resultSet.next()) {

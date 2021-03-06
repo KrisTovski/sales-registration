@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/records", "/records/{page_id}"})
+@WebServlet("/records")
 public class SaleRecordsController extends HttpServlet {
 
     SaleRecordService saleRecordService = new SaleRecordService();
@@ -19,20 +19,21 @@ public class SaleRecordsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int currentpage = 1;
-        int numRecords = 10;
 
-        if (request.getParameter("page") != null)
-            currentpage = Integer.parseInt(request.getParameter("page"));
+        int currentPage = 1;
+        int recordsPerPage = 10;
 
-        List<SaleRecordDto> saleRecordDtos = saleRecordService.findAll((currentpage - 1) * numRecords, numRecords);
+        if (request.getParameter("currentPage") != null)
+            currentPage = Integer.parseInt(request.getParameter("currentPage"));
+
+        saleRecordService.findAll((currentPage - 1) * recordsPerPage, recordsPerPage);
 
         int totalRecords = saleRecordService.getNumberOfRows();
-        int numPages = (int) Math.ceil(totalRecords * 1.0 / numRecords);
+        int numOfPages = (int) Math.ceil(totalRecords * 1.0 / recordsPerPage);
 
-        request.setAttribute("records", saleRecordDtos);
-        request.setAttribute("numPages", numPages);
-        request.setAttribute("currentPage", currentpage);
+        request.setAttribute("noOfPages", numOfPages);
+        request.setAttribute("currentPage", currentPage);
+        request.setAttribute("recordsPerPage", recordsPerPage);
 
         request.getRequestDispatcher("/WEB-INF/views/records.jsp").forward(request, response);
     }

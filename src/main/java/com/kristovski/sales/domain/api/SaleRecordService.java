@@ -19,9 +19,19 @@ public class SaleRecordService {
         saleRecordDao.save(recordToSave);
     }
 
-    public List<SaleRecordDto> findAll(int currentPage, int pageSize) {
+    public List<SaleRecordDto> findAll(int currentPage, int recordsPerPage){
 
-        return saleRecordDao.findAll(currentPage, pageSize)
+
+        int rows = saleRecordDao.getNumberOfRows();
+
+        int nOfPages = rows / recordsPerPage;
+
+        if (nOfPages % recordsPerPage > 0) {
+
+            nOfPages++;
+        }
+
+        return saleRecordDao.findAll(currentPage, recordsPerPage)
                 .stream().map(RecordMapper::map)
                 .collect(Collectors.toList());
     }
