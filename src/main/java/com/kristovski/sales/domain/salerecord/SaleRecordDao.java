@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SaleRecordDao extends BaseDao {
 
-    public List<SaleRecord> findAll(int pageIndex, int pageSize) {
+    public List<SaleRecord> findAll(int currentPage, int pageSize) {
         final String query = """
                 SELECT
                 id, date_added, value, type, description, user_id
@@ -21,7 +21,7 @@ public class SaleRecordDao extends BaseDao {
                 """;
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, (pageIndex -1 * pageSize));
+            statement.setInt(1, currentPage);
             statement.setInt(2, pageSize);
             ResultSet resultSet = statement.executeQuery();
             List<SaleRecord> allSaleRecords = new ArrayList<>();
@@ -60,18 +60,21 @@ public class SaleRecordDao extends BaseDao {
 
     }
 
-    public Integer getNumberOfRows(){
+    public int getNumberOfRows() {
+        int count = 0;
         final String query = """
                 SELECT COUNT(id) FROM records
                 """;
-        try(Connection connection = getConnection();
-            Statement statement = connection.createStatement()){
+        try (Connection connection = getConnection();
+             Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
-            return resultSet.getInt(1);
-        } catch (SQLException e){
-                throw new RuntimeException(e);
+            while (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-
+        return count;
     }
 
     private SaleRecord mapRow(ResultSet resultSet) throws SQLException {

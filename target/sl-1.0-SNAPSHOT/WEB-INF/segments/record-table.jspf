@@ -36,17 +36,31 @@
 
 <div class="Table outerTableFooter">
     <div class="tableFootStyle">
-        <div class="links">
-            <a href="#">&laquo;</a>
-            <a class="active" href="#">1</a>
+
+        <div class="pagination">
+            <C:if test="${requestScope.records.currentPage != 1}">
+            <a href="records?page=${requestScope.records.currentPage - 1}">Previous</a>
+            </C:if>
+            <c:forEach begin="1" end="${requestScope.records.noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${requestScope.records.currentPage eq i}">${i}</c:when>
+                    <c:otherwise><a href="records?page=${i}">${i}</a> </c:otherwise>
+                </c:choose>
+                </c:forEach>
+                <c:if test="${requestScope.records.currentPage lt requestScope.noOfPages}">
+                <a href="records?page=${requestScope.records.currentPage + 1}">Next</a>
+                </c:if>
+            <a href="${pageContext.request.contextPath}/page=${requestScope.records.backPageNo}">&laquo;</a>
+            <a class="active" href="${pageContext.request.contextPath}/page=1">Home</a>
             <a href="#">2</a>
             <a href="#">3</a>
             <a href="#">4</a>
-            <a href="#">&raquo;</a>
+            <a href="${pageContext.request.contextPath}records/page=${requestScope.records.nexPageNo}>&raquo;</a>
+
         </div>
     </div>
 </div>
 <div><p>Suma: 300zł</p></div>
 <a href="${pageContext.request.contextPath}/record/add" class="record-add-button">
     <i class="fa fa-plus"></i>
-</a>
+
