@@ -34,9 +34,9 @@ public class SaleRecordsController extends HttpServlet {
         request.setAttribute("saleRecords", saleRecordDtos);
 
         int totalRecords = saleRecordService.getNumberOfRows();
-        int numOfPages = (int) Math.ceil(totalRecords * 1.0 / recordsPerPage);
+        int noOfPages = (int) Math.ceil(totalRecords * 1.0 / recordsPerPage);
 
-        request.setAttribute("noOfPages", numOfPages);
+        request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", currentPage);
         request.setAttribute("recordsPerPage", recordsPerPage);
 
