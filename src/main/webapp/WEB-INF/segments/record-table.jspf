@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="TableBody">
-        <c:forEach var="saleRecord" items="${requestScope.records}">
+        <c:forEach var="saleRecord" items="${requestScope.saleRecords}">
             <div class="TableRow">
                 <div class="TableCell"><c:out value="${saleRecord.id}"/></div>
                 <div class="TableCell">${saleRecord.dateAdded.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))}</div>
@@ -36,16 +36,26 @@
 
 <div class="Table outerTableFooter">
     <div class="tableFootStyle">
-        <div class="links">
-            <a href="#">&laquo;</a>
-            <a class="active" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">&raquo;</a>
+
+        <div class="pagination">
+            <a href="records${requestScope.records}">Home</a>
+
+            <label for="pagelist">Strona</label>
+            <select id="pagelist">
+                <option <c:forEach begin="1" end="${requestScope.records.noOfPages}" var="i">>
+                    <c:choose>
+                        <c:when test="${requestScope.records.currentPage eq i}">${i}</c:when>
+                        <c:otherwise><a href="records?page=${i}">${i}</a> </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                </option>
+
+            </select>
+
         </div>
     </div>
 </div>
+
 <div><p>Suma: 300zł</p></div>
 <a href="${pageContext.request.contextPath}/record/add" class="record-add-button">
     <i class="fa fa-plus"></i>
