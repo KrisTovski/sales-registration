@@ -2,7 +2,7 @@
 
 This project is based on **Servlets and JSP** (JakartaServer pages) - included in **JakartaEE**.
 The reason I created this application was **to learn the foundations of web applications**.
-I think the application will not be further developed. I would like to focus on the Spring framework rather than legacy code.
+Now I would like to focus on the Spring framework rather than legacy code so I think this application will not be further developed.
 
 ## Technologies
 * Java 15
@@ -33,3 +33,11 @@ I think the application will not be further developed. I would like to focus on 
 ![](readme-images/sl-page3.png)
 ![](readme-images/sl-page4.png)
 ![](readme-images/sl-page5.png)
+
+There are still many to do:
+* finish pagination 
+* sorting by date/months
+* exceptions handling
+* tests
+* 
+But as I mentioned before, I wouldn't like to focus on this technology, so I freeze the project at this stage.  
