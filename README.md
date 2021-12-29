@@ -1,5 +1,5 @@
-# Sales Registration App
-
+# Sales Registration App <p id="top"></p>
+ 
 This project is based on **Servlets and JSP** (JakartaServer pages) - included in **JakartaEE**.
 The reason I created this application was **to learn the foundations of web applications**.
 Now I would like to focus on the Spring framework rather than legacy code so I think this application will not be further developed.
@@ -44,6 +44,6 @@ There are still many to do:
 But as I mentioned before, I wouldn't like to focus on this technology, so I freeze the project at this stage.
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#top">↥ back to top</a></b>
 </div>
 <br/>
