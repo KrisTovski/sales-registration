@@ -43,9 +43,12 @@ There are still many to do:
 
 But as I mentioned before, I wouldn't like to focus on this technology, so I freeze the project at this stage.
 
-You can find me on [![LinkedIn][linkedin-icon]][linkedin-profile].
-[linkedin-icon]: https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/linkedin-3-16.png
+You can find me on [![LinkedIn][linkedin-icon]][linkedin-profile]
+
+[linkedin-icon]: readme-images/linkedin.png
+
 [linkedin-profile]: https://www.linkedin.com/in/krzysztof-filak/
+
 <br/>
 <div align="right">
     <b><a href="#top">↥ back to top</a></b>
