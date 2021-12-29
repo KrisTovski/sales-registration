@@ -43,14 +43,23 @@ There are still many to do:
 
 But as I mentioned before, I wouldn't like to focus on this technology, so I freeze the project at this stage.
 
+<div style="text-align: right">
+
+<a href="#top">↥ back to top</a>
+
+</div>
+
+-----
+
+<div style="text-align: center;">
+
 You can find me on [![LinkedIn][linkedin-icon]][linkedin-profile]
+
+</div>
 
 [linkedin-icon]: readme-images/linkedin.png
 
 [linkedin-profile]: https://www.linkedin.com/in/krzysztof-filak/
 
-<br/>
-<div align="right">
-    <b><a href="#top">↥ back to top</a></b>
-</div>
-<br/>
+
+    
